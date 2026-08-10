@@ -67,6 +67,11 @@ table {
 @media screen and (width: 250px) {
 body { 
     font-family: "Inter", sans-serif;
+    background-color: #007BFF;
+    grid-template-columns: auto 1fr auto;
+    margin: 0;
+    text-align: center;
+    width: 100%;
 }
 
 }
