@@ -124,8 +124,8 @@ table {
     }
 
     p {
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+        line-height: 1.7;
     }
 
     .site-nav {
@@ -133,7 +133,7 @@ table {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        background-color: var(--charcoal);
+        background-color: var(--black);
         color: var(--white);
     }
 
@@ -160,7 +160,7 @@ table {
         flex-direction: column;
         gap: 0.75rem;
         width: 100%;
-        background-color: var(--charcoal);
+        background-color: var(--black);
         padding: 1rem 0 0;
         margin: 0;
         position: absolute;
@@ -177,14 +177,33 @@ table {
     }
 
     .nav-menu a {
-        color: var(--white);
+        color: var(--blue);
         text-decoration: none;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        font-size: 1.5rem;
     }
 
     #about {
         background-color: var(--white);
         color: var(--black);
         padding: 3rem 1rem;
+    }
+
+    #services {
+        background-color: var(--white);
+        color: var(--black);
+        padding: 3rem 1rem;
+    }
+
+    #about h2,
+    #services h2,
+    #results h2,
+    #contact h2,
+    #about #expertise h2,
+    .results-table h3,
+    #Growth h3 {
+        text-align: left;
     }
 
     #about #expertise {
@@ -197,6 +216,20 @@ table {
         background-color: var(--blue);
         color: var(--white);
         padding: 3rem 1rem;
+    }
+
+    .results-container {
+        display: block;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .results-table,
+    #Growth {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     #results table {
@@ -232,11 +265,24 @@ table {
     }
 
     .card {
-        background-color: var(--white);
+        background-color: var(--blue);
+        color: var(--white);
         padding: 1rem;
-        border: 1px solid var(--charcoal);
-        border-radius: 5px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        text-align: left;
+    }
+
+    .card h3,
+    .card p {
+        text-align: left;
+    }
+
+    @media screen and (min-width: 760px) {
+        .offerings-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
     }
 
     .logo {
@@ -287,26 +333,22 @@ table {
 #innovation {
     position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    min-height: 80vh;
     padding: 2rem 1rem;
 }
 
-#innovation::before {
-    content: "";
-    position: absolute;
-    inset: 18% 20% 18% 20%;
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    width: min(90%, 760px);
     background: rgba(0, 0, 0, 0.10);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: 0;
-}
-
-#innovation > * {
-    position: relative;
-    z-index: 1;
+    padding: 1.5rem 1.75rem;
+    margin: 0 auto;
 }
 
 #innovation-title {
@@ -324,28 +366,28 @@ table {
     background: transparent;
 }
 
-#innovation-title h2 {
-    margin: 0;
-    font-size: clamp(2.2rem, 4vw, 4rem);
+.hero-content h2 {
+    margin: 0 0 0.9rem;
+    font-size: clamp(2.6rem, 4vw, 5.2rem);
     line-height: 1.1;
 }
 
-#innovation p {
-    max-width: 700px;
-    margin: 0 auto;
-    font-size: 1.05rem;
+.hero-content p {
+    max-width: 620px;
+    margin: 0 auto 0.25rem;
+    font-size: clamp(1rem, 1.6vw, 1.5rem);
     line-height: 1.6;
 }
 
 #innovation a {
     display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.85rem 1.5rem;
+    margin-top: 0.9rem;
+    padding: 0.9rem 1.6rem;
     background-color: var(--blue);
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
-    border-radius: 4px;
+    border-radius: 8px;
     border-bottom: none;
 }
 
@@ -425,14 +467,20 @@ table {
         grid-template-columns: 1fr 1fr;
     }
     .results-container {
-        flex-direction: row;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    .results-table,
+    #Growth {
+        width: 100%;
     }
     .results-table {
-        width: 50%;
+        width: 100%;
     }
     .bar-chart {
-        width: 50%;
+        width: 100%;
     }
 }
 

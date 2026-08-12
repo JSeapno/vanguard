@@ -40,11 +40,13 @@
 
     <main>
         <section id="innovation" aria-labelledby="innovation-title">
-            <div id="innovation-title">
-                <h2>Innovation & Investment</h2>
+            <div class="hero-content">
+                <div id="innovation-title">
+                    <h2>Innovation & Investment</h2>
+                </div>
+                <p>We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.</p>
+                <p><a href="#contact">Request a Consultation</a></p>
             </div>
-            <p>We empower businesses to lead the future with high-impact strategies, market intelligence, and financial solutions that drive success.</p>
-            <p><a href="#contact">Request a Consultation</a></p>
         </section>
 
         <section id="about" aria-labelledby="about-title">
@@ -88,7 +90,7 @@
         </section>
 
         <section id="results" aria-labelledby="results-title">
-            <h2 id="results-title">Results</h2>
+            <h2 id="results-title">Proven Results</h2>
             <p>Our data-driven strategies have delivered outstanding ROI, leading to significant revenue growth.</p>
 
             <div class="results-container">
@@ -174,15 +176,4 @@
         <p>For educational purposes only. Email: info@vaanguard.com Phone: 480.123.4567</p>
     </footer>
 
-    <script>
-        const nav = document.querySelector('.site-nav');
-        const navToggle = document.querySelector('.nav-toggle');
-
-        if (nav && navToggle) {
-            navToggle.addEventListener('click', () => {
-                const isOpen = nav.classList.toggle('open');
-                navToggle.setAttribute('aria-expanded', isOpen);
-            });
-        }
-    </script>
 </body>
