@@ -23,9 +23,14 @@
         </div>
         <h1>Vanguard</h1>
 
-        <nav id="nav" aria-label="Main navigation">
-            <h2>Main Navigation</h2>
-            <ul>
+        <nav id="nav" class="site-nav" aria-label="Main navigation">
+            <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="nav-menu" class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -168,4 +173,16 @@
     <footer id="footer">
         <p>For educational purposes only. Email: info@vaanguard.com Phone: 480.123.4567</p>
     </footer>
+
+    <script>
+        const nav = document.querySelector('.site-nav');
+        const navToggle = document.querySelector('.nav-toggle');
+
+        if (nav && navToggle) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+            });
+        }
+    </script>
 </body>
