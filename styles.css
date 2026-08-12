@@ -218,6 +218,10 @@ table {
         padding: 3rem 1rem;
     }
 
+    #results > p {
+        margin-bottom: 2.5rem;
+    }
+
     .results-container {
         display: block;
         width: 90%;
@@ -239,6 +243,11 @@ table {
         border-collapse: collapse;
     }
 
+    .results-table h3,
+    #Growth h3 {
+        margin-bottom: 1rem;
+    }
+
     #results th,
     #results td {
         border: 1px solid rgba(255, 255, 255, 0.25);
@@ -249,6 +258,71 @@ table {
         background-color: var(--black);
         color: var(--white);
         padding: 3rem 1rem;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr);
+        gap: 1rem 1.5rem;
+        width: min(900px, 100%);
+        margin: 2rem auto 0;
+        text-align: left;
+        align-items: end;
+    }
+
+    form .field {
+        display: flex;
+        flex-direction: column;
+        min-height: 88px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 0.45rem;
+        font-weight: 600;
+    }
+
+    form input,
+    form textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.8rem 0.9rem;
+        border-radius: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        background: #ffffff;
+        color: var(--black);
+    }
+
+    form textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    #full-name-field,
+    #company-name-field,
+    #message-field {
+        grid-column: 1 / 2;
+    }
+
+    #email-field,
+    #industry-field {
+        grid-column: 2 / 3;
+    }
+
+    #message-field {
+        grid-column: 1 / 3;
+    }
+
+    form input[type="submit"] {
+        grid-column: 2 / 3;
+        justify-self: end;
+        width: 180px;
+        background-color: var(--blue);
+        color: var(--white);
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 0.5rem;
     }
 
     img {
@@ -405,16 +479,18 @@ table {
     position: relative;
 }
 
-/* ADD ON TRANSITION ON HEIGHT */
+/* Bar animation: grow each bar from the bottom up to its assigned height */
 .bar {
     width: 50px;
+    max-width: 100%;
+    height: var(--height);
     background: var(--charcoal);
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
     position: relative;
-    transition: height 1s ease-in-out;
-    height: 0;
+    transform-origin: bottom;
+    animation: stepUp 1s ease-in-out forwards;
 }
-/* THIS ONE IS DONE FOR YOU */
+
 .bar::after {
     content: attr(data-year);
     position: absolute;
@@ -425,17 +501,16 @@ table {
     font-weight: bold;
     color: var(--white);
 }
+
 @keyframes stepUp {
     0% {
         height: 0;
+        opacity: 0.2;
     }
     100% {
         height: var(--height);
+        opacity: 1;
     }
-}
-/* ADD ANIMATION ON stepUp for 1s ease-in-out forwards */
-.bar {
-    animation: stepUp 1s ease-in-out forwards;
 }
 
 
@@ -469,7 +544,7 @@ table {
     .results-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
         align-items: start;
     }
     .results-table,
@@ -481,6 +556,7 @@ table {
     }
     .bar-chart {
         width: 100%;
+        max-width: 100%;
     }
 }
 
